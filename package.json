@@ -1,0 +1,16 @@
+{
+  "name": "DJ-YAGICHAN-SYSTEM",
+  "version": "1.0.0",
+  "description": "A DJ system.",
+  "main": "app.js",
+  "repository": {
+    "url": "https://github.com/ygkn/DJ-YAGICHAN-SYSTEM.git",
+    "type": "git"
+  },
+  "author": "Yugo Yagita <2000ygkn0713@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "node-dev": "^3.1.3"
+  }
+}
