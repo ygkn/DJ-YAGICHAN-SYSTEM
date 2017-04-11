@@ -5,9 +5,10 @@ html(lang='ja')
     meta(name='viewport', content='width=device-width,initial-scale=1')
     script.
       const $ = s => Array.from(document.querySelectorAll(s));
+    script(src="./public/client.js")
   body
     h1
       DJ YAGICHAN SYSTEM
     form
-      
+      input(type="search", name="query", placeholder="URLまたは動画のキーワードを入力…")
 
