@@ -9,10 +9,10 @@ app.set('view engine', 'pug');
 app.use(express.static("public"));
 
 app.get('/', (req, res) => 
-  res.render('index'));
+  res.sendFile(path.join(__dirname, "src", "index.html")));
 
 http.listen(PORT, process.env.IP, () => console.log(`listening on ${PORT}`))
 
 io.on('connection', (socket) => {
-  console.log('a user connected' + socket.id);
+  socket.emit("init", socket.id)
 });
