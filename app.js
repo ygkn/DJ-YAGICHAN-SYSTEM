@@ -5,6 +5,17 @@ const PORT    = process.env.PORT || 3000;
 const path    = require("path");
 const io      = require('socket.io')(http);
 
+const webpack = require("webpack");
+const webpackconfing = require("./webpack.config.js");
+const compiler = webpack(webpackconfing);
+
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: webpackconfing.output.publicPath
+}));
+
+app.use(require('webpack-hot-middleware')(compiler));
+
 app.set('view engine', 'pug');
 app.use(express.static("public"));
 
