@@ -1,8 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from 'react-dom'
+import { createStore } from 'redux'
+import todoApp from './reducers'
+import Root from './components/Root'
 
-ReactDOM.render(
-  <App />,
+let store = createStore(todoApp)
+
+render(
+  <Root store={store} />,
   document.getElementById('root')
-);
+)
