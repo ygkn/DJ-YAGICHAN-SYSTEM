@@ -1,6 +1,6 @@
-import { createAction } from 'redux-actions';
+import { createActions } from 'redux-actions';
 
-export createActions(
+export const actions = createActions(
   "REQUEST_LOGIN",
   "SUCCESS_LOGIN",
   "FAILURE_LOGIN",
