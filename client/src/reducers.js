@@ -32,10 +32,10 @@ export default {
   videoList: handleActions({
     [successLogin](state, action) {
       return action.payload.videoList;
-    }
+    },
     [addedSong](state, action){
       return [...state, action.payload];
-    }
+    },
     [playedSong](state, action){
       const after = [...state];
       after[action.payload].playing = true;
