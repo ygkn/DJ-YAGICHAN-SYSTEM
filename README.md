@@ -1,2 +1,5 @@
 # DJ-YAGICHAN-SYSTEM
 A DJ system
+
+## LICENSE
+[MIT](./LICENSE)
