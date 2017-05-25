@@ -1,9 +1,9 @@
 import { createActions } from 'redux-actions';
 
 export const actions = createActions(
-  "REQUEST_LOGIN",
-  "SUCCESS_LOGIN",
-  "FAILURE_LOGIN",
+  "REQUEST_ROOM_INFO"
+  "SUCCESS_ROOM_INFO",
+  "FAILURE_ROOM_INFO",
   "REQUEST_SUBMIT_SONG",
   "SUCCESS_SUBMIT_SONG",
   "FAILURE_SUBMIT_SONG",
