@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import { requestLogin, successLogin, failureLogin,
+import { requestRoomInfo, successRoomInfo, failureRoomInfo,
   requestSubmitSong, successSubmitSong, failureSubmitSong,
   inputQuery, requestSearch, successSearch, failureSearch,
   addedSong, playedSong } from "./actions";
@@ -15,7 +15,7 @@ const inital = {
 
 export default {
   user: handleActions({
-    [successLogin](state, action){
+    [successRoomInfo](state, action){
       const {lastPosted} = action.payload;
       return {...state, lastPosted};
     },
@@ -30,7 +30,7 @@ export default {
     }
   }, inital.user),
   videoList: handleActions({
-    [successLogin](state, action) {
+    [successRoomInfo](state, action) {
       return action.payload.videoList;
     },
     [addedSong](state, action){
