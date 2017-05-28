@@ -12,7 +12,7 @@ import createSagaMiddleware from 'redux-saga';
 
 import { Router, Route} from 'react-router'
 import { createBrowserHistory } from 'history';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
 
 import reducers from './reducers';
 import rootSaga from './sagas';
@@ -29,6 +29,7 @@ const DevTools = createDevTools(
   </DockMonitor>
 )
 
+const history = createBrowserHistory();
 
 const store = createStore(
   combineReducers({
@@ -36,19 +37,22 @@ const store = createStore(
     routing: routerReducer
   }),
   compose(
-    applyMiddleware(sagaMiddleware),
+    applyMiddleware(
+      sagaMiddleware,
+      routerMiddleware(history)
+    ),
     DevTools.instrument()
   )
 );
 
-const history = syncHistoryWithStore(createBrowserHistory(), store);
+const routerHistory = syncHistoryWithStore(history, store, { adjustUrlOnReplay: true });
 
 sagaMiddleware.run(rootSaga);
 
 render(
   <Provider store={store}>
     <div>
-      <Router history={history}>
+      <Router history={routerHistory}>
         <div>
           <Route exact path="/" component={Login}/>
           <Route exact path="/:roomId" component={Post}/>
