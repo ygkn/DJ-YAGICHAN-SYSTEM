@@ -10,9 +10,7 @@ import { Provider } from 'react-redux';
 
 import createSagaMiddleware from 'redux-saga';
 
-import { Router, Route} from 'react-router'
-import { createBrowserHistory } from 'history';
-import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux'
+import { createBrowserHistory as createHistory, reducer as router } from 'redux-tower';
 
 import reducers from './reducers';
 import rootSaga from './sagas';
@@ -21,26 +19,22 @@ import Login from './components/Login.jsx'
 import Post from './components/Post'
 import Dashboard from './components/Dashboard'
 
-const sagaMiddleware = createSagaMiddleware();
-
 const DevTools = createDevTools(
   <DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-q">
     <LogMonitor theme="tomorrow" preserveScrollTop={false} />
   </DockMonitor>
 )
 
-const history = createBrowserHistory();
+const history = createHistory();
 
+const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   combineReducers({
     ...reducers,
-    routing: routerReducer
+    router
   }),
   compose(
-    applyMiddleware(
-      sagaMiddleware,
-      routerMiddleware(history)
-    ),
+    applyMiddleware(sagaMiddleware),
     DevTools.instrument()
   )
 );
