@@ -11,7 +11,7 @@ class Login extends React.Component {
     return (
       <div>
         <Logo />
-        <Link to={`/${this.state.goTo}`}>投稿画面へ</Link>
+        <Link to={`/${this.state.goTo}/post`}>投稿画面へ</Link>
         <Link to={`/${this.state.goTo}/dashboard`}>管理画面へ</Link>
         <input type="text" onInput={e => this.setState({goTo: e.target.value})} />
       </div>
