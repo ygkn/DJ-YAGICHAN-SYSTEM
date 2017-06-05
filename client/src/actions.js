@@ -1,6 +1,6 @@
 import { createActions } from 'redux-actions';
 
-export const actions = createActions(
+const actions = createActions(
   "REQUEST_ROOM_INFO",
   "SUCCESS_ROOM_INFO",
   "FAILURE_ROOM_INFO",
@@ -14,3 +14,5 @@ export const actions = createActions(
   "ADDED_SONG",
   "PLAYED_SONG"
 );
+
+export default actions;

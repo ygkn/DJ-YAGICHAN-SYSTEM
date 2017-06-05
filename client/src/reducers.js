@@ -1,8 +1,10 @@
 import { handleActions } from 'redux-actions';
-import { requestRoomInfo, successRoomInfo, failureRoomInfo,
+import actions from "./actions";
+
+const { requestRoomInfo, successRoomInfo, failureRoomInfo,
   requestSubmitSong, successSubmitSong, failureSubmitSong,
   inputQuery, requestSearch, successSearch, failureSearch,
-  addedSong, playedSong } from "./actions";
+  addedSong, playedSong } = actions;
 
 const inital = {
   user: {
