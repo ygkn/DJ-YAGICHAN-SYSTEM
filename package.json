@@ -1,0 +1,8 @@
+{
+  "name": "DJ-YAGICHAN-SYSTEM",
+  "version": "1.0.0",
+  "main": "@",
+  "repository": "git@github.com:ygkn/DJ-YAGICHAN-SYSTEM.git",
+  "author": "Yugo Yagita <2000ygkn0713@gmail.com>",
+  "license": "MIT"
+}
