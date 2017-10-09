@@ -5,7 +5,6 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 if (process.env.NODE_ENV !== 'production') {
-  /* eslint-disable global-require, import/no-extraneous-dependencies */
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
