@@ -2,14 +2,14 @@ import path from 'path';
 import webpack from 'webpack';
 
 export default {
-  context: path.resolve(path.resolve(__dirname, 'src')),
+  context: path.resolve(path.join(__dirname, 'public')),
   entry: [
     './index',
   ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(path.resolve(__dirname, 'static', 'build')),
-    publicPath: '/build',
+    path: path.resolve(path.join(__dirname, 'public', 'assets')),
+    publicPath: '/assets',
   },
   module: {
     rules: [

@@ -5,6 +5,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 if (process.env.NODE_ENV !== 'production') {
+  /* eslint-disable global-require, import/no-extraneous-dependencies */
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -19,7 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Serve static files
-app.use(express.static(path.resolve(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 console.log(`Served: http://localhost:${port}`);
 app.listen(port, (err) => {

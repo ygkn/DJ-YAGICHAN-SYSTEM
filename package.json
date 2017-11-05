@@ -1,9 +1,20 @@
 {
-  "name": "DJ-YAGICHAN-SYSTEM",
+  "name": "dj-yagichan",
   "version": "1.0.0",
-  "main": "@",
-  "repository": "git@github.com:ygkn/DJ-YAGICHAN-SYSTEM.git",
-  "author": "Yugo Yagita <2000ygkn0713@gmail.com>",
+  "description": "A DJ SYSTEM",
+  "main": "index.js",
+  "scripts": {
+    "heroku-postbuild": "yarn run build",
+    "start": "babel-watch app.js",
+    "build": "yarn run build:client && yarn run build:server",
+    "build:client": "NODE_ENV=production webpack --config=webpack.config.prod.babel.js --progress --colors",
+    "build:server": "babel app.js -d dist",
+    "lint": "eslint src",
+    "serve": "node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -33,8 +44,8 @@
   },
   "devDependencies": {
     "babel-watch": "^2.0.7",
-    "eslint": "^4.8.0",
-    "eslint-config-airbnb": "^16.0.0",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0"
