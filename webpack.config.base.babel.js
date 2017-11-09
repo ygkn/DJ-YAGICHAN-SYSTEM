@@ -5,6 +5,7 @@ export default {
   context: path.resolve(path.join(__dirname, 'public')),
   entry: [
     './index',
+    'babel-polyfill'
   ],
   output: {
     filename: 'bundle.js',
@@ -14,7 +15,7 @@ export default {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
@@ -31,4 +32,7 @@ export default {
       },
     }),
   ],
+  resolve: {
+    extensions: [".js", ".json", ".jsx"]
+  }
 };
