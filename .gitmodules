@@ -1,0 +1,3 @@
+[submodule "redux-tower"]
+	path = redux-tower
+	url = git@github.com:kuy/redux-tower.git
