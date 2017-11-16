@@ -4,6 +4,8 @@ import path from 'path';
 const app = express();
 const port = process.env.PORT || 8080;
 
+const STATIC_DIR = path.join(__dirname, 'public');
+
 if (process.env.NODE_ENV !== 'production') {
   /* eslint-disable global-require, import/no-extraneous-dependencies */
   const webpack = require('webpack');
@@ -20,7 +22,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(STATIC_DIR));
+app.get('/*', (req,res) => {
+  res.sendFile(path.join(STATIC_DIR, 'index.html'))
+})
 
 console.log(`Served: http://localhost:${port}`);
 app.listen(port, (err) => {
