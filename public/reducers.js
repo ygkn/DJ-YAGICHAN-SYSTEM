@@ -40,11 +40,23 @@ export default {
     [actions.successFetchRoomInfo](state, action) {
       return {...state, ...action.payload};
     },
-    [actions.requestSerchVideo](state) {
-      return {...state, submitstate: "pending"}
+    [actions.requestPostVideo](state) {
+      return {
+        ...state,
+        submitting: {index: action.payload.index, state: "pending"}
+      }
     },
-    [actions.failureSearchVideo](state) {
-      return {...state, submitstate: "error"}
+    [actions.failurePostVideo](state) {
+      return {
+        ...state,
+        submitting: {...state.submitting, state: "pending"}
+      }
+    },
+    [actions.sucessPostVideo](state, action) {
+      return {
+        ...state,
+        submitting: {...state.submitting, state: "completed"}
+      }
     },
     [actions.sucessSearchVideo](state, action) {
       const { page, videos } = action.payload;
@@ -55,8 +67,7 @@ export default {
 
       return {
         ...state,
-         searchResults,
-         submitstate: "complated"
+         searchResults
       }
     },
     [actions.onPostedVideo](state, action) {
