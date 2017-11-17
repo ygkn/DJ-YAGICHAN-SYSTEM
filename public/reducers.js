@@ -5,7 +5,8 @@ const inital = {
  me: {
     id: "",
     name: "",
-    authState: ""
+    authState: "",
+    roomHistory: []
   },
   room: {
     id: "",
@@ -33,7 +34,14 @@ export default {
     },
     [actions.successAuth](state, action) {
       const { id, name } = action.payload;
-      return { id, name, authState: "completed" };
+      return {...state, id, name, authState: "completed" };
+    },
+    [actions.successEnterRoom](state, action) {
+      const { id, name } = action.payload;
+      return {
+        ...state,
+        roomHistory: [...state.roomHistory, { id, name }]
+      }
     }
   }),
   room: {
