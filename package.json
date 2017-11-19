@@ -32,6 +32,7 @@
     "react-dom": "^16.0.0",
     "react-hot-loader": "next",
     "react-redux": "^5.0.6",
+    "react-tabs": "^2.1.1",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "redux-devtools": "^3.4.0",
